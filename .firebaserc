@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "autd-dev",
+    "staging": "autd-stag",
+    "production": "autd-prod"
+  }
+}
