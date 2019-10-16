@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsapiService } from '../newsapi.service';
 
 @Component({
   selector: 'app-tab1',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tab1.page.scss'],
 })
 export class Tab1Page implements OnInit {
-
-  constructor() { }
-
+  articles;
+  constructor(private apiService: NewsapiService){}
+  
   ngOnInit() {
+  }
+  ionViewDidEnter(){
+
+    this.apiService.getNews().subscribe((data)=>{
+      console.log(data);
+      this.articles = data['articles'];
+    });
   }
 
 }
