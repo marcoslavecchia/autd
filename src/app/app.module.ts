@@ -11,13 +11,26 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 
+
+import { environment } from 'src/environments/environment';
+import { AuthenticateService } from "./services/AuthenticateService";
+import { AngularFireAuthModule } from '@angular/fire/auth';
+ 
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+import * as firebase from 'firebase';
+firebase.initializeApp(environment.firebase);
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,],
+  imports: [BrowserModule,ReactiveFormsModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, AngularFireAuthModule],
   providers: [
     StatusBar,
-    SplashScreen,
+    SplashScreen, AuthenticateService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

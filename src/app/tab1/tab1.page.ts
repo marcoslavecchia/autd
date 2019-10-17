@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsapiService } from '../newsapi.service';
+import { NewsapiService } from '../services/newsapi.service';
 
 @Component({
   selector: 'app-tab1',

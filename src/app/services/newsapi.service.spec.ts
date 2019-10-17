@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NewsapiService } from './newsapi.service';
+import { NewsapiService } from '../services/newsapi.service';
 
 describe('NewsapiService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
