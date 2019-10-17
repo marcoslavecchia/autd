@@ -16,14 +16,15 @@ export class RegisterPage implements OnInit {
   successMessage: string = '';
 
   validation_messages = {
-   'email': [
-     { type: 'required', message: 'Email is required.' },
-     { type: 'pattern', message: 'Enter a valid email.' }
-   ],
-   'password': [
-     { type: 'required', message: 'Password is required.' },
-     { type: 'minlength', message: 'Password must be at least 5 characters long.' }
-   ]
+  
+    'email': [
+      { type: 'required', message: 'Email obrigatório.' },
+      { type: 'pattern', message: 'Informe um Email válido.' }
+    ],
+    'password': [
+      { type: 'required', message: 'Informe sua senha.' },
+      { type: 'minlength', message: 'Senha deve ter no mínimo 5 caracteres.' }
+    ]
  };
 
   constructor(
@@ -50,7 +51,7 @@ export class RegisterPage implements OnInit {
      .then(res => {
        console.log(res);
        this.errorMessage = "";
-       this.successMessage = "Your account has been created. Please log in.";
+       this.successMessage = "Sua conta foi criada com sucesso!";
      }, err => {
        console.log(err);
        this.errorMessage = err.message;

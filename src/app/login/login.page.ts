@@ -38,12 +38,12 @@ export class LoginPage implements OnInit {
  
   validation_messages = {
     'email': [
-      { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'Please enter a valid email.' }
+      { type: 'required', message: 'Email obrigatório.' },
+      { type: 'pattern', message: 'Informe um Email válido.' }
     ],
     'password': [
-      { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password must be at least 5 characters long.' }
+      { type: 'required', message: 'Informe sua senha.' },
+      { type: 'minlength', message: 'Senha deve ter no mínimo 5 caracteres.' }
     ]
   };
  
@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
     .then(res => {
       console.log(res);
       this.errorMessage = "";
-      this.navCtrl.navigateForward('/dashboard');
+      this.navCtrl.navigateForward('tabs/tab1');
     }, err => {
       this.errorMessage = err.message;
     })
