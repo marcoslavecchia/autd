@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { AuthenticateService } from "../services/AuthenticateService";
+import { AuthenticateService } from "../../services/AuthenticateService";
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -60,7 +60,7 @@ export class RegisterPage implements OnInit {
   }
 
   goLoginPage(){
-    this.navCtrl.navigateBack('');
+    this.navCtrl.navigateBack('/login');
   }
 
 

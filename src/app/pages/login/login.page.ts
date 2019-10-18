@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { AuthenticateService } from "../services/AuthenticateService";
+import { AuthenticateService } from "../../services/AuthenticateService";
  
 @Component({
   selector: 'app-login',
@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
     .then(res => {
       console.log(res);
       this.errorMessage = "";
-      this.navCtrl.navigateForward('tabs/tab1');
+      this.navCtrl.navigateForward('/tabs/tab1');
     }, err => {
       this.errorMessage = err.message;
     })
