@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Todo, TodoService } from './../../services/todo.service';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -24,3 +26,22 @@ const routes: Routes = [
   declarations: [Tab2Page]
 })
 export class Tab2PageModule {}
+
+
+
+export class HomeTodo implements OnInit {
+ 
+  todos: Todo[];
+ 
+  constructor(private todoService: TodoService) { }
+ 
+  ngOnInit() {
+    this.todoService.getTodos().subscribe(res => {
+      this.todos = res;
+    });
+  }
+ 
+  remove(item) {
+    this.todoService.removeTodo(item.id);
+  }
+}
