@@ -2,7 +2,7 @@ import { Todo, TodoService } from './../../services/todo.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
-import { Routes, RouterModule } from '@angular/router';
+
 
 
  
@@ -52,14 +52,31 @@ export class TodoDetailsPage implements OnInit {
     if (this.todoId) {
       this.todoService.updateTodo(this.todo, this.todoId).then(() => {
         loading.dismiss();
-        this.nav.navigateForward('/details/:id');
+        this.nav.navigateForward('/tabs/tab2');
       });
     } else {
       this.todoService.addTodo(this.todo).then(() => {
         loading.dismiss();
-        this.nav.navigateForward('/details/:id');
+        this.nav.navigateForward('/tabs/tab2');
       });
     }
   }
  
+
+  async removeTodo() {
+ 
+    const loading = await this.loadingController.create({
+      message: 'Apagando Evento'
+    });
+    await loading.present();
+ 
+    if (this.todoId) {
+      this.todoService.removeTodo(this.todoId).then(() => {
+        loading.dismiss();
+        this.nav.navigateForward('/tabs/tab2');
+      });
+    
+    }
+  }
+
 }
