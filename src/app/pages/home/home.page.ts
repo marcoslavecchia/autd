@@ -27,7 +27,7 @@ export class HomePage implements OnInit {
 
   async getData(){
     const loading = await this.loadingCtrl.create({
-      message: 'Please wait...'
+      message: 'Por Favor Aguarde...'
     });
     this.presentLoading(loading);
 
