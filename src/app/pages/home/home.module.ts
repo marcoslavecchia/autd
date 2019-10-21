@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TodoDetailsPage } from './todo-details.page';
+import { HomePage } from './home.page';
+import { HomeResolver } from './home.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: TodoDetailsPage
+    component: HomePage,
+    resolve: {
+      data: HomeResolver
+    }
   }
 ];
 
@@ -18,9 +22,13 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [TodoDetailsPage]
+  declarations: [HomePage],
+  providers: [
+    HomeResolver
+  ]
 })
-export class TodoDetailsPageModule {}
+export class HomePageModule {}

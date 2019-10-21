@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { AuthenticateService } from "../../services/AuthenticateService";
-import { NavController } from '@ionic/angular';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,30 +10,28 @@ import { NavController } from '@ionic/angular';
 })
 export class RegisterPage implements OnInit {
 
-
   validations_form: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
 
   validation_messages = {
-  
-    'email': [
-      { type: 'required', message: 'Email obrigatório.' },
-      { type: 'pattern', message: 'Informe um Email válido.' }
-    ],
-    'password': [
-      { type: 'required', message: 'Informe sua senha.' },
-      { type: 'minlength', message: 'Senha deve ter no mínimo 5 caracteres.' }
-    ]
- };
+   'email': [
+     { type: 'required', message: 'Email is required.' },
+     { type: 'pattern', message: 'Enter a valid email.' }
+   ],
+   'password': [
+     { type: 'required', message: 'Password is required.' },
+     { type: 'minlength', message: 'Password must be at least 5 characters long.' }
+   ]
+  };
 
   constructor(
-    private navCtrl: NavController,
-    private authService: AuthenticateService,
-    private formBuilder: FormBuilder
-  ) {}
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.validations_form = this.formBuilder.group({
       email: new FormControl('', Validators.compose([
         Validators.required,
@@ -47,11 +45,11 @@ export class RegisterPage implements OnInit {
   }
 
   tryRegister(value){
-    this.authService.registerUser(value)
+    this.authService.doRegister(value)
      .then(res => {
        console.log(res);
        this.errorMessage = "";
-       this.successMessage = "Sua conta foi criada com sucesso!";
+       this.successMessage = "Your account has been created. Please log in.";
      }, err => {
        console.log(err);
        this.errorMessage = err.message;
@@ -60,8 +58,7 @@ export class RegisterPage implements OnInit {
   }
 
   goLoginPage(){
-    this.navCtrl.navigateBack('/login');
+    this.router.navigate(["/login"]);
   }
-
 
 }

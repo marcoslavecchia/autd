@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
 import { IonicModule } from '@ionic/angular';
-
-import { RegisterPage } from './../register/register.page';
+import { NewTaskPage } from './new-task.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: RegisterPage
+    component: NewTaskPage
   }
 ];
 
@@ -18,10 +16,11 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
     ReactiveFormsModule,
+    IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [RegisterPage]
+  providers: [Location],
+  declarations: [NewTaskPage]
 })
-export class RegisterPageModule {}
+export class NewTaskPageModule {}

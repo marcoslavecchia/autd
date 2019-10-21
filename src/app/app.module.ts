@@ -11,32 +11,37 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 
-
-import { environment } from 'src/environments/environment';
-import { AuthenticateService } from "./services/AuthenticateService";
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
- 
 
-import { ReactiveFormsModule } from '@angular/forms';
-
-import { AngularFireModule } from 'angularfire2';
-
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-
-
-import * as firebase from 'firebase';
-firebase.initializeApp(environment.firebase);
+import { environment } from '../environments/environment';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { NewTaskModalPage } from './new-task-modal/new-task-modal.page';
 
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule,ReactiveFormsModule, IonicModule.forRoot(),
-     AppRoutingModule, HttpClientModule, AngularFireAuthModule, AngularFireModule.initializeApp(environment.firebase),
-     AngularFirestoreModule],
+  // declarations: [AppComponent, NewTaskModalPage],
+  // entryComponents: [NewTaskModalPage],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase), // imports firebase/app
+    AngularFirestoreModule, // imports firebase/firestore
+    AngularFireAuthModule, // imports firebase/auth
+    AngularFireStorageModule, // imports firebase/storage
+  ],
   providers: [
     StatusBar,
-    SplashScreen, AuthenticateService,
+    SplashScreen,
+    
+    { provide: FirestoreSettingsToken, useValue: {} },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
