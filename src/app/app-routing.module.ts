@@ -7,11 +7,18 @@ const routes: Routes = [
   { path: '', loadChildren: './pages/tabs/tabs.module#TabsPageModule' },
   { path: 'tab1', loadChildren: './pages/tab1/tab1.module#Tab1PageModule' },
   { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
-  { path: 'tab3', loadChildren: './pages/tab3/tab3.module#Tab3PageModule' },
+  { path: 'eventshome', loadChildren: './pages/eventshome/eventshome.module#EventshomePageModule' },
+
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
+  
   { path: 'details/:id', loadChildren: './pages/details/details.module#DetailsPageModule' },
+  { path: 'eventsdetails/:id', loadChildren: './pages/eventsdetails/eventsdetails.module#EventsdetailsPageModule' },
+ 
   { path: 'new-task', loadChildren: './pages/new-task/new-task.module#NewTaskPageModule' },
+  { path: 'eventsnewtask', loadChildren: './pages/eventsnewtask/eventsnewtask.module#EventsnewtaskPageModule' },
+  
+  
   
 ];
 

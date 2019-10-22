@@ -14,8 +14,11 @@ const routes: Routes = [
     children:[
         { path: 'tab1', loadChildren: '././../tab1/tab1.module#Tab1PageModule' },
         { path: 'home', loadChildren: '././../home/home.module#HomePageModule' },
-        { path: 'tab3', loadChildren: '././../tab3/tab3.module#Tab3PageModule' },
+        { path: 'eventshome', loadChildren: '././../eventshome/eventshome.module#EventshomePageModule' },
+       
         { path: 'details', loadChildren: '././../details/details.module#DetailsPageModule' },
+        { path: 'eventsdetails', loadChildren: '././../eventsdetails/eventsdetails.module#EventsdetailsPageModule' },
+        
     ]
   },
   {
