@@ -42,16 +42,23 @@ export class DetailsPage implements OnInit {
      }
     })
     this.validations_form = this.formBuilder.group({
-      title: new FormControl(this.item.title, Validators.required),
-      description: new FormControl(this.item.description, Validators.required)
+      nome: new FormControl(this.item.nome, Validators.required),
+      posologia: new FormControl(this.item.posologia, Validators.required),
+      quantidade: new FormControl(this.item.quantidade, Validators.required),
+      hora: new FormControl(this.item.hora, Validators.required),
+      gramagem: new FormControl (this.item.gramagem, Validators.required)
     });
   }
 
+
+
   onSubmit(value){
     let data = {
-      title: value.title,
-      description: value.description,
-      
+      nome: value.nome,
+      posologia: value.posologia,
+      quantidade: value. quantidade,
+      hora: value.hora,
+
     }
     this.firebaseService.updateTask(this.item.id,data)
     .then(

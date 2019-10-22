@@ -32,15 +32,22 @@ export class NewTaskPage implements OnInit {
   resetFields(){
     
     this.validations_form = this.formBuilder.group({
-      title: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required)
+      nome: new FormControl('', Validators.required),
+      posologia: new FormControl('', Validators.required),
+      quantidade: new FormControl('', Validators.required),
+      hora: new FormControl('', Validators.required),
+      gramagem: new FormControl('', Validators.required)
+      
     });
   }
 
   onSubmit(value){
     let data = {
-      title: value.title,
-      description: value.description,
+        nome: value.nome,
+        posologia: value.posologia,
+        quantidade: value. quantidade,
+        hora: value.hora,
+        gramagem: value.gramagem,
     
     }
     this.firebaseService.createTask(data)

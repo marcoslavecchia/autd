@@ -11,13 +11,38 @@
   
   <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
     <ion-item>
-      <ion-label position="floating" color="primary">Title</ion-label>
-      <ion-input type="text" formControlName="title"></ion-input>
+      <ion-label position="floating" color="primary">Nome</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating" color="primary">Description</ion-label>
-      <ion-input type="text" formControlName="description"></ion-input>
+      <ion-label position="floating" color="primary">Posologia</ion-label>
+      <ion-input type="number" min="0" formControlName="posologia"></ion-input>
+    
     </ion-item>
+    <ion-item>
+  
+  <ion-label position="floating" color="primary">Gramagem</ion-label>
+        <ion-select placeholder="Escolha" formControlName="gramagem">
+            <ion-select-option value="microgramas">Microgramas</ion-select-option>
+          <ion-select-option value="miligrama">Miligramas</ion-select-option>
+          <ion-select-option value="gramas">Gramas</ion-select-option>
+        </ion-select>
+
+        
+      
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Quantidade</ion-label>
+      <ion-input type="number" min="0" formControlName="quantidade"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Hora</ion-label>
+      <ion-input type="time" formControlName="hora"></ion-input>
+    </ion-item>
+
     <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Create</ion-button>
   </form>
 </ion-content>

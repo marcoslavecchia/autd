@@ -14,8 +14,11 @@
     <ion-list>
       <ion-item *ngFor="let item of items" [routerLink]="['/details', item.payload.doc.id]">
         
-        <ion-label>{{item.payload.doc.data().title}}</ion-label>
-        <ion-button fill="clear" slot="end">Detalhes</ion-button>
+        <ion-label>{{item.payload.doc.data().nome}}
+          <ion-label>{{item.payload.doc.data().hora}}</ion-label>
+        </ion-label>
+        
+        <ion-button fill="clear" slot="end">Editar</ion-button>
       </ion-item>
     </ion-list>
   </div>
