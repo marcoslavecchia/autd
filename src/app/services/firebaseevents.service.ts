@@ -20,7 +20,7 @@ export class FirebaseeventsService {
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
         if(currentUser){
-          this.snapshotChangesSubscription = this.afs.collection('people').doc(currentUser.uid).collection('events').snapshotChanges();
+          this.snapshotChangesSubscription = this.afs.collection('usuarios').doc(currentUser.uid).collection('eventos').snapshotChanges();
           resolve(this.snapshotChangesSubscription);
         }
       })
@@ -31,7 +31,7 @@ export class FirebaseeventsService {
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
         if(currentUser){
-          this.snapshotChangesSubscription = this.afs.doc<any>('people/' + currentUser.uid + '/events/' + eventId).valueChanges()
+          this.snapshotChangesSubscription = this.afs.doc<any>('usuarios/' + currentUser.uid + '/eventos/' + eventId).valueChanges()
           .subscribe(snapshots => {
             resolve(snapshots);
           }, err => {
@@ -50,7 +50,7 @@ export class FirebaseeventsService {
   updateEvent(eventKey, value){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('events').doc(eventKey).set(value)
+      this.afs.collection('usuarios').doc(currentUser.uid).collection('eventos').doc(eventKey).set(value)
       .then(
         res => resolve(res),
         err => reject(err)
@@ -61,7 +61,7 @@ export class FirebaseeventsService {
   deleteEvent(eventKey){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('events').doc(eventKey).delete()
+      this.afs.collection('usuarios').doc(currentUser.uid).collection('eventos').doc(eventKey).delete()
       .then(
         res => resolve(res),
         err => reject(err)
@@ -72,9 +72,10 @@ export class FirebaseeventsService {
   createEvent(value){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('events').add({
-        title: value.title,
-        description: value.description,
+      this.afs.collection('usuarios').doc(currentUser.uid).collection('eventos').add({
+        tipo: value.tipo,
+        data: value.data,
+        observacoes: value.observacoes,
       })
       .then(
         res => resolve(res),

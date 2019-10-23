@@ -10,15 +10,36 @@
 <ion-content padding>
   
   <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
-    <ion-item>
-      <ion-label position="floating" color="primary">Título</ion-label>
-      <ion-input type="text" formControlName="title"></ion-input>
+    
+      <ion-item>
+      <ion-label position="floating" color="primary">Tipo de Evento</ion-label>
+      <ion-select interface="popover" formControlName="tipo">
+          <ion-select-option value="Convulsão">Convulsão</ion-select-option>
+          <ion-select-option value="Agressividade">Agressividade</ion-select-option>
+          <ion-select-option value="Depressão">Depressão</ion-select-option>
+          <ion-select-option value="Irritabilidade">Irritabilidade</ion-select-option>
+          <ion-select-option value="Auto-Agressão">Auto-Agressão</ion-select-option>
+          <ion-select-option value="Rigidez-Motora">Rigidez Motora</ion-select-option>
+        </ion-select>
     </ion-item>
+
     <ion-item>
-      <ion-label position="floating" color="primary">Descrição</ion-label>
-      <ion-input type="text" formControlName="description"></ion-input>
+      <ion-label position="inline" color="primary">Data</ion-label>
+      <ion-input type="date" formControlName="data"></ion-input>
     </ion-item>
-    <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button>
+
+    <ion-item>
+        <ion-label position="floating" color="primary">Hora</ion-label>
+        <ion-input type="time" formControlName="hora"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+          <ion-label position="floating" color="primary">Observações</ion-label>
+          <ion-textarea auto-grow="true" rows="6" formControlName="observacoes"></ion-textarea>
+        </ion-item>
+   
+    <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Salvar</ion-button>
   </form>
   <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Apagar</ion-button>
 

@@ -32,16 +32,19 @@ export class EventsnewtaskPage implements OnInit {
   resetFields(){
     
     this.validations_form = this.formBuilder.group({
-      title: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required)
+      tipo: new FormControl('', Validators.required),
+      data: new FormControl('', Validators.required),
+      observacoes: new FormControl('', Validators.required),
+      hora: new FormControl('', Validators.required)
     });
   }
 
   onSubmit(value){
     let data = {
-      title: value.title,
-      description: value.description,
-    
+      tipo: value.tipo,
+      data: value.data,
+      observacoes: value.observacoes,
+      hora: value.hora,
     }
     this.firebaseeventsService.createEvent(data)
     .then(

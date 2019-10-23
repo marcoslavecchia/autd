@@ -42,15 +42,20 @@ export class EventsdetailsPage implements OnInit {
      }
     })
     this.validations_form = this.formBuilder.group({
-      title: new FormControl(this.item.title, Validators.required),
-      description: new FormControl(this.item.description, Validators.required)
+      tipo: new FormControl(this.item.tipo, Validators.required),
+      data: new FormControl(this.item.data, Validators.required),
+      observacoes: new FormControl(this.item.observacoes, Validators.required),
+      hora: new FormControl(this.item.hora, Validators.required),
+      
     });
   }
 
   onSubmit(value){
     let data = {
-      title: value.title,
-      description: value.description,
+        tipo: value.tipo,
+        data: value.data,
+        observacoes: value.observacoes,
+        hora: value.hora,
       
     }
     this.firebaseeventsService.updateEvent(this.item.id,data)

@@ -21,3 +21,8 @@ export class DetailsResolver implements Resolve<any> {
     })
   }
 }
+
+
+
+
+

@@ -58,6 +58,7 @@ export class DetailsPage implements OnInit {
       posologia: value.posologia,
       quantidade: value. quantidade,
       hora: value.hora,
+      gramagem: value.gramagem,
 
     }
     this.firebaseService.updateTask(this.item.id,data)

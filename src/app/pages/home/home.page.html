@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="end">
-      <ion-button [routerLink]="['/new-task']">
-        <ion-icon slot="icon-only" name="add"></ion-icon>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="end">
+          <ion-button (click)="logout()" [routerLink]="['/login']">
+            <ion-icon name="log-out"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Medicamentos</ion-title>
+    <ion-title>Medicamentos</ion-title> 
   </ion-toolbar>
 </ion-header>
 
@@ -14,8 +14,8 @@
     <ion-list>
       <ion-item *ngFor="let item of items" [routerLink]="['/details', item.payload.doc.id]">
         
-        <ion-label>{{item.payload.doc.data().nome}}
-          <ion-label>{{item.payload.doc.data().hora}}</ion-label>
+        <ion-icon name="clock" color="primary"></ion-icon><ion-label color="primary">&nbsp;{{item.payload.doc.data().nome}}
+          <ion-label>&nbsp;{{item.payload.doc.data().hora}}</ion-label>
         </ion-label>
         
         <ion-button fill="clear" slot="end">Editar</ion-button>
@@ -25,5 +25,14 @@
   <div *ngIf="items.length == 0" class="empty-list">
     Lista de Medicamentos Vazia!
   </div>
+
+
+
+  <!-- fab placed to the bottom start -->
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+      <ion-fab-button [routerLink]="['/new-task']">
+        <ion-icon  name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 </ion-content>
 

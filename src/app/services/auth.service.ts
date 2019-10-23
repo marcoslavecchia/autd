@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { FirebaseService } from './firebase.service';
+import { FirebaseeventsService } from './firebaseevents.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
@@ -10,6 +11,7 @@ export class AuthService {
 
   constructor(
     private firebaseService: FirebaseService,
+    private firebaseeventsService: FirebaseeventsService,
     public afAuth: AngularFireAuth
   ){}
 
@@ -36,6 +38,7 @@ export class AuthService {
       this.afAuth.auth.signOut()
       .then(() => {
         this.firebaseService.unsubscribeOnLogOut();
+        this.firebaseeventsService.unsubscribeOnLogOut();
         resolve();
       }).catch((error) => {
         console.log(error);
