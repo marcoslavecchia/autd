@@ -76,6 +76,7 @@ export class FirebaseeventsService {
         tipo: value.tipo,
         data: value.data,
         observacoes: value.observacoes,
+        hora: value.hora,
       })
       .then(
         res => resolve(res),

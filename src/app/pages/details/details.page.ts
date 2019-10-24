@@ -71,17 +71,17 @@ export class DetailsPage implements OnInit {
 
   async delete() {
     const alert = await this.alertCtrl.create({
-      header: 'Confirm',
-      message: 'Do you want to delete ' + this.item.title + '?',
+      header: 'Confirmar Exclusão',
+      message: 'Você tem certeza que deseja apagar ' + this.item.nome + '?',
       buttons: [
         {
-          text: 'No',
+          text: 'Não',
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {}
         },
         {
-          text: 'Yes',
+          text: 'Sim',
           handler: () => {
             this.firebaseService.deleteTask(this.item.id)
             .then(

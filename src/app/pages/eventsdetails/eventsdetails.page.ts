@@ -45,7 +45,7 @@ export class EventsdetailsPage implements OnInit {
       tipo: new FormControl(this.item.tipo, Validators.required),
       data: new FormControl(this.item.data, Validators.required),
       observacoes: new FormControl(this.item.observacoes, Validators.required),
-      hora: new FormControl(this.item.hora, Validators.required),
+      hora: new FormControl(this.item.hora, Validators.required)
       
     });
   }
@@ -68,17 +68,17 @@ export class EventsdetailsPage implements OnInit {
 
   async delete() {
     const alert = await this.alertCtrl.create({
-      header: 'Confirm',
-      message: 'Do you want to delete ' + this.item.title + '?',
+      header: 'Confirmar Exclusão',
+      message: 'Você tem certeza que deseja apagar ' + this.item.tipo + '?',
       buttons: [
         {
-          text: 'No',
+          text: 'Não',
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {}
         },
         {
-          text: 'Yes',
+          text: 'Sim',
           handler: () => {
             this.firebaseeventsService.deleteEvent(this.item.id)
             .then(
