@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="secondary">
     <ion-buttons slot="end">
       <ion-button (click)="logout()"  [routerLink]="['/login']">
         <ion-icon name="log-out"></ion-icon>
@@ -14,11 +14,11 @@
     <ion-list>
       <ion-item *ngFor="let item of items" [routerLink]="['/eventsdetails', item.payload.doc.id]">
         
-        <ion-icon name="clipboard" color="primary"></ion-icon><ion-label color="primary">&nbsp;{{item.payload.doc.data().tipo}}
+        <ion-icon name="clipboard" color="secondary"></ion-icon><ion-label color="secondary">&nbsp;{{item.payload.doc.data().tipo}}
             <ion-label>&nbsp;{{item.payload.doc.data().data}}</ion-label>
           </ion-label>
 
-        <ion-button fill="clear" slot="end">Editar</ion-button>
+        <ion-button fill="clear" slot="end" color="secondary">Editar</ion-button>
       </ion-item>
     </ion-list>
   </div>
@@ -27,7 +27,7 @@
   </div>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button [routerLink]="['/eventsnewtask']">
+      <ion-fab-button [routerLink]="['/eventsnewtask']" color="secondary">
         <ion-icon  name="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>

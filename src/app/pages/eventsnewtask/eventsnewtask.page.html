@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="secondary">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="tabs/eventshome"></ion-back-button>
     </ion-buttons>
@@ -14,7 +14,7 @@
 
 
     <ion-item>
-        <ion-label position="floating" color="primary">Tipo de Evento</ion-label>
+        <ion-label position="floating" color="secondary">Tipo de Evento</ion-label>
         <ion-select interface="popover" formControlName="tipo">
             <ion-select-option value="Convulsão">Convulsão</ion-select-option>
             <ion-select-option value="Agressividade">Agressividade</ion-select-option>
@@ -29,17 +29,17 @@
 
 
     <ion-item>
-      <ion-label position="inline" color="primary">Data:</ion-label>
+      <ion-label position="inline" color="secondary">Data:</ion-label>
       <ion-input type="date" formControlName="data"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-label position="floating" color="primary">Hora</ion-label>
+        <ion-label position="floating" color="secondary">Hora</ion-label>
         <ion-input type="time" formControlName="hora"></ion-input>
       </ion-item>
 
     <ion-item>
-    <ion-label position="floating" color="primary">Descrição do Ocorrido</ion-label>
+    <ion-label position="floating" color="secondary">Descrição do Ocorrido</ion-label>
       <ion-textarea auto-grow="true" rows="6" formControlName="observacoes"  ></ion-textarea>
     </ion-item>
     <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Criar Evento</ion-button>
